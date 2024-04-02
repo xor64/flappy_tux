@@ -1,3 +1,28 @@
+bin/
+/nob
+/nob.old
+
+#raylib
+lib/raylib/src/*.o
+lib/raylib/src/fractional-scale-v1-client-protocol.h
+lib/raylib/src/idle-inhibit-unstable-v1-client-protocol.h
+lib/raylib/src/pointer-constraints-unstable-v1-client-protocol.h
+lib/raylib/src/relative-pointer-unstable-v1-client-protocol.h
+lib/raylib/src/viewporter-client-protocol.h
+lib/raylib/src/wayland-client-protocol.h
+lib/raylib/src/xdg-activation-v1-client-protocol.h
+lib/raylib/src/xdg-decoration-unstable-v1-client-protocol.h
+lib/raylib/src/xdg-shell-client-protocol.h
+lib/raylib/src/fractional-scale-v1-client-protocol-code.h
+lib/raylib/src/idle-inhibit-unstable-v1-client-protocol-code.h
+lib/raylib/src/pointer-constraints-unstable-v1-client-protocol-code.h
+lib/raylib/src/relative-pointer-unstable-v1-client-protocol-code.h
+lib/raylib/src/viewporter-client-protocol-code.h
+lib/raylib/src/wayland-client-protocol-code.h
+lib/raylib/src/xdg-activation-v1-client-protocol-code.h
+lib/raylib/src/xdg-decoration-unstable-v1-client-protocol-code.h
+lib/raylib/src/xdg-shell-client-protocol-code.h
+
 # Prerequisites
 *.d
 
