@@ -1,0 +1,18 @@
+{
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "xaver.clang-format",
+    "files.associations": {
+        "*.nasm": "asm-intel-x86-generic",
+        "*.lm2": "asm-intel-x86-generic",
+        "*.asm": "asm-intel-x86-generic",
+        "*.s": "gas",
+        "*.tcc": "cpp",
+        "unordered_map": "cpp",
+        "fstream": "cpp",
+        "istream": "cpp",
+        "numeric": "cpp",
+        "ostream": "cpp",
+        "sstream": "cpp",
+        "stdbool.h": "c"
+    }
+}

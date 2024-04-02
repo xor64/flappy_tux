@@ -18,7 +18,8 @@
 #define AR "ar"
 #define OUT_BIN "bin/flappy_tux"
 
-static char* CC_ARGS[] = {"-std=c2x"};
+static char* CC_ARGS[] = {"-std=c2x", "-Isrc/include", "-Ilib/raylib/src/"};
+static char* LD_ARGS[] = {"-lm"};
 
 typedef struct {
     char* src;
@@ -47,6 +48,18 @@ static target_t targets[] = {
     {
         .src = "src/main.c",
         .dst = "bin/obj/main.o",
+        .cc = CC,
+        .args = NULL,
+    },
+    {
+        .src = "src/renderer.c",
+        .dst = "bin/obj/renderer.o",
+        .cc = CC,
+        .args = NULL,
+    },
+    {
+        .src = "src/texture_mgr.c",
+        .dst = "bin/obj/texture_mgr.o",
         .cc = CC,
         .args = NULL,
     },
@@ -100,7 +113,6 @@ bool build(bool optimise) {
     }
     objects_t objs = {0};
 
-    build_libs(&objs);
 
     for (size_t i = 0; i < SARRLEN(targets); i++) {
         nob_da_append(&objs, targets[i].dst);
@@ -108,6 +120,8 @@ bool build(bool optimise) {
             return ERR;
         }
     }
+
+    build_libs(&objs);
 
     if (!link_objects(&objs, optimise)) {
         return ERR;
@@ -146,6 +160,7 @@ bool link_objects(objects_t* objs, bool optimise) {
     Nob_Cmd cmd = {0};
     nob_cmd_append(&cmd, LD, "-o", OUT_BIN);
     nob_da_append_many(&cmd, objs->items, objs->count);
+    nob_da_append_many(&cmd, LD_ARGS, SARRLEN(LD_ARGS));
 
     if (optimise) {
         nob_cmd_append(&cmd, "-O3");
